@@ -1,69 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library Tailwind</title>
 
-    <link href="/dist/output.css" rel="stylesheet">
-</head>
-<body>
-    <div class="flex flex-col h-screen">
-        <header>
-            <nav>
-                <div>
-                    <div>
-                        <div>
-                            <button id="m-menu-button" type="button" aria-controls="mobile-menu" aria-expanded="false">
-                                <span class="sr-only">Open main menu</span>
-                                <!-- closed menu -->
-                                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                                </svg>
-                                <!-- opened menu -->
-                                <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div>
-                            <div>
-                                <img src="https://assets.website-files.com/61af164800e38c4f53c60b4e/61af164800e38c11efc60b6d_RevoU.svg" alt="RevoU Library">
-                            </div>
-                            <div class="hidden sm:ml-6 sm:block">
-                                <div class="flex space-x-4">
-                                    <a href="index.html" aria-current="page">Library</a>
-              
-                                    <a href="books.html">Books</a>
-              
-                                    <a href="information.html">Information</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-              
-                <div id="m-menu">
-                    <div>
-                        <a href="index.html" aria-current="page">Library</a>
-              
-                        <a href="books.html">Books</a>
-              
-                        <a href="information.html">Information</a>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <main class="flex-1 bg-library-1">
-            Library
-        </main>
-        <footer>
-            <p>
-                RevoU Library
-            </p>
-        </footer>
-    </div>
+    <link href="/dist/output.css" rel="stylesheet" />
+  </head>
+  <body class="flex flex-col h-screen">
+    <header>
+      <nav class="bg-gray-800">
+        <div
+          class="main-container flex flex-row justify-between ms-auto max-w-7xl px-2 py-4 lg:justify-start lg:px-8"
+        >
+          <div class="mobile-menu-btn-wrapper">
+            <a
+              class="m-menu-btn space-y-1 block p-2.5 rounded-md bg-slate-500 lg:hidden"
+              onclick="toggleMobileMenu()"
+            >
+              <span class="block w-4 h-0.5 bg-white animate-pulse"></span>
+              <span class="block w-4 h-0.5 bg-white animate-pulse"></span>
+              <span class="block w-4 h-0.5 bg-white animate-pulse"></span>
+            </a>
+          </div>
+          <div class="logo-wrapper">
+            <a class="logo" href="./index.html"
+              ><img
+                class="block h-8 w-auto"
+                src="https://assets.website-files.com/61af164800e38c4f53c60b4e/61af164800e38c11efc60b6d_RevoU.svg"
+                alt="revou-logo"
+              />
+            </a>
+          </div>
+          <div class="menu-wrapper px-5">
+            <div class="hidden lg:block">
+              <a
+                href=""
+                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                >Library</a
+              >
+              <a
+                href=""
+                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                >Books</a
+              >
+              <a
+                href=""
+                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                >Information</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="m-menu-container hidden">
+          <a
+            href=""
+            class="text-gray-300 rounded-md px-3 py-2 text-base font-medium block"
+            >Library</a
+          >
+          <a
+            href=""
+            class="text-gray-300 rounded-md px-3 py-2 text-base font-medium block"
+            >Books</a
+          >
+          <a
+            href=""
+            class="text-gray-300 rounded-md px-3 py-2 text-base font-medium block"
+            >Information</a
+          >
+        </div>
+      </nav>
+    </header>
+    <main
+      class="flex-1 bg-library-1 overflow-y-auto bg-cover bg-center bg-no-repeat"
+    >
+      <div class="flex flex-col items-center py-3 px-2 lg:px-8">
+        <div
+          class="search-box container mx-auto my-3 px-4 py-8 max-w-screen-md bg-gray-800 rounded-lg lg:px-8"
+        >
+          <h3 class="text-white text-center mb-4">
+            Welcome to RevoU Library! Use this search to find books quickly!
+          </h3>
+          <form class="search-form relative">
+            <div
+              class="search-icon-wrapper absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none"
+            >
+              <svg
+                class="w-5 h-5 text-gray-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z">
+              </svg>
+            </div>
+            <input
+              type="search"
+              class="search-input block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:border-blue-500"
+              placeholder="Search"
+            />
+            <button
+              class="search-button absolute text-white right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+        <div class="search-result container"></div>
+      </div>
+    </main>
+    <footer class="py-3 bg-gray-800">
+      <p class="text-center text-xs leading-relaxed text-gray-300">
+        RevoU Library
+      </p>
+    </footer>
     <script src="app.js"></script>
-</body>
+    <script>
+      const toggleMobileMenu = () => {
+        document.querySelector(".m-menu-btn").classList.toggle("open");
+        document.querySelector(".m-menu-container").classList.toggle("block");
+        document.querySelector(".m-menu-container").classList.toggle("hidden");
+      };
+    </script>
+  </body>
 </html>
