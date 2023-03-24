@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "{YOUR_NAME}",
   "license": "MIT",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css",
+    "watch": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
   "devDependencies": {
     "tailwindcss": "^3.2.7"
   }
