@@ -8,7 +8,7 @@
 
     <link href="/dist/output.css" rel="stylesheet" />
   </head>
-  <body>
+  <body class="flex flex-col h-screen">
     <header>
       <nav class="bg-gray-800">
         <div
@@ -72,7 +72,86 @@
         </div>
       </nav>
     </header>
-    <main></main>
+    <main
+      class="flex-1 overflow-y-auto bg-library-2 bg-cover bg-center bg-no-repeat"
+    >
+      <div class="flex flex-col items-center py-3 px-4 lg:px-8">
+        <div
+          class="container mx-auto my-3 max-w-screen-xl bg-gray-800 rounded-lg py-8 lg:px-8"
+        >
+          <div class="page-tab-navigation-top text-center text-gray-400">
+            <ul class="inline-flex -space-x-px">
+              <li
+                class="px-3 py-2 ml-0 leading-tight border border-gray-700 hover:bg-gray-700 hover:text-white rounded-l-lg"
+              >
+                Previous
+              </li>
+              <li
+                class="px-3 py-2 ml-0 leading-tight border border-gray-700 hover:bg-gray-700 hover:text-white"
+              >
+                1
+              </li>
+              <li
+                class="px-3 py-2 ml-0 leading-tight border border-gray-700 hover:bg-gray-700 hover:text-white"
+              >
+                2
+              </li>
+              <li
+                class="px-3 py-2 ml-0 leading-tight border border-gray-700 hover:bg-gray-700 hover:text-white rounded-r-lg"
+              >
+                Next
+              </li>
+            </ul>
+          </div>
+          <div
+            class="book-grid my-5 grid grid-cols-1 lg:grid-cols-4 gap-4 px-4"
+          >
+            <div class="w-full border border-gray-700 rounded-lg shadow">
+              <a href="#">
+                <img
+                  class="h-72 mx-auto"
+                  src="https://covers.openlibrary.org/b/olid/OL26425330M-M.jpg"
+                  alt="A Game of Thrones"
+                />
+
+                <div class="p-5">
+                  <h3 class="mb-2 font-bold tracking-tight text-white">
+                    A Game of Thrones
+                  </h3>
+                  <p class="mb-3 text-gray-400">
+                    <strong>Author(s):</strong>George R. R. Martin
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="page-tab-navigation-bottom text-center text-gray-400">
+            <ul class="inline-flex -space-x-px">
+              <li
+                class="px-3 py-2 ml-0 leading-tight border border-gray-700 hover:bg-gray-700 hover:text-white rounded-l-lg"
+              >
+                Previous
+              </li>
+              <li
+                class="px-3 py-2 ml-0 leading-tight border border-gray-700 hover:bg-gray-700 hover:text-white"
+              >
+                1
+              </li>
+              <li
+                class="px-3 py-2 ml-0 leading-tight border border-gray-700 hover:bg-gray-700 hover:text-white"
+              >
+                2
+              </li>
+              <li
+                class="px-3 py-2 ml-0 leading-tight border border-gray-700 hover:bg-gray-700 hover:text-white rounded-r-lg"
+              >
+                Next
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <script src="app.js"></script>
   </body>

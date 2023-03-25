@@ -19,9 +19,13 @@
               class="m-menu-btn space-y-1 block p-2.5 rounded-md active:bg-slate-700 lg:hidden"
               onclick="toggleMobileMenu()"
             >
-              <span class="block w-4 h-0.5 bg-white animate-pulse"></span>
-              <span class="block w-4 h-0.5 bg-white animate-pulse"></span>
-              <span class="block w-4 h-0.5 bg-white animate-pulse"></span>
+              <span
+                class="stripe-1 block w-4 h-0.5 bg-white origin-top-left"
+              ></span>
+              <span class="stripe-2 block w-4 h-0.5 bg-white"></span>
+              <span
+                class="stripe-3 block w-4 h-0.5 bg-white origin-top-left"
+              ></span>
             </a>
           </div>
           <div class="logo-wrapper">
@@ -116,22 +120,21 @@
         <div
           class="search-result container max-w-screen-md bg-gray-800 rounded-lg mx-auto my-3 py-4 lg:px-8"
         >
-          <div class="my-6">
-            <a href="#" class="search-result-card">
-              <img
-                class="search-result-img"
-                src="https://covers.openlibrary.org/b/olid/OL16980586M-M.jpg"
-                alt="Rich Dad, Poor Dad - Robert T. Kiyosaki"
-              />
-              <div class="search-result-descr">
-                <h3 class="search-result-title">test</h3>
-                <b>Author(s):</b>
-                <caption>
-                  Rich people, personal finance, investment
-                </caption>
-              </div>
-            </a>
-          </div>
+          <a href="#" class="search-result-card my-6">
+            <img
+              class="search-result-img"
+              src="https://covers.openlibrary.org/b/olid/OL16980586M-M.jpg"
+              alt="Rich Dad, Poor Dad - Robert T. Kiyosaki"
+            />
+            <div class="search-result-descr">
+              <h3 class="search-result-title">test</h3>
+              <b>Author(s):</b>
+              <caption>
+                Rich people, personal finance, investment
+              </caption>
+            </div>
+          </a>
+
           <div class="search-result-not-found text-center text-gray-400">
             <p>No books found, please try with another keyword</p>
           </div>
@@ -144,12 +147,6 @@
       </p>
     </footer>
     <script src="app.js"></script>
-    <script>
-      const toggleMobileMenu = () => {
-        document.querySelector(".m-menu-btn").classList.toggle("open");
-        document.querySelector(".m-menu-container").classList.toggle("block");
-        document.querySelector(".m-menu-container").classList.toggle("hidden");
-      };
-    </script>
+    <script></script>
   </body>
 </html>
