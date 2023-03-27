@@ -28,7 +28,7 @@ const toggleMobileMenu = () => {
 
 /* SEARCH FUNC ----------------*/
 
-const getBooksData = async () => {
+const getBooksDataForSearch = async () => {
   let response = await fetch("./src/data.json");
   let json = await response.json();
   return json["books"];
@@ -39,7 +39,7 @@ let searchResult = document.querySelector(".search-result");
 
 const searchBooks = async (evt) => {
   evt.preventDefault();
-  const books = await getBooksData();
+  const books = await getBooksDataForSearch();
   const value = document.querySelector(".search-input").value.toLowerCase();
 
   if (value.length > 0) {
@@ -85,6 +85,11 @@ const search = () => {
 };
 
 /* PAGE TAB FUNCTION --------------------------*/
+const getBooksDataForLoad = async () => {
+  let response = await fetch("./data.json");
+  let json = await response.json();
+  return json["books"];
+};
 
 const bookGrid = document.querySelector(".book-grid");
 
@@ -101,7 +106,7 @@ const loadBooks = async () => {
   let queryString = window.location.search;
   let page = new URLSearchParams(queryString).get("page");
   page = page ? Number(page) : 1;
-  const books = await getBooksData();
+  const books = await getBooksDataForLoad();
 
   books.slice(12 * (page - 1), 12 * page).forEach((book) => {
     let bookShowCard = document.createElement("div");
