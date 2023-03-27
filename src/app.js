@@ -1,18 +1,3 @@
-function getPageFromUrl() {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-
-  let page = urlParams.get("page");
-
-  return page;
-}
-
-async function getBooksData() {
-  let response = await fetch("./data.json");
-  let json = await response.json();
-  return json["books"];
-}
-
 /* MOBILE MENU fUNC ------------------------*/
 const toggleMobileMenu = () => {
   let mMenuBtn = document.querySelector(".m-menu-btn");
@@ -43,40 +28,84 @@ const toggleMobileMenu = () => {
 
 /* SEARCH FUNC ----------------*/
 
+const getBooksData = async () => {
+  let response = await fetch("./data.json");
+  let json = await response.json();
+  return json["books"];
+};
+
 let searchForm = document.querySelector(".search-form");
-let searchInput = document.querySelector(".search-input");
-let searchResult = document.querySelector("search-result");
+let searchResult = document.querySelector(".search-result");
 
-searchForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
+const searchBooks = async (evt) => {
+  evt.preventDefault();
+  const books = await getBooksData();
+  const value = document.querySelector(".search-input").value.toLowerCase();
 
-  //setup the string
-  let query = searchInput.value.trim().toLowerCase();
+  if (value.length > 0) {
+    searchResult.innerHTML = "";
+    searchResult.classList.remove("hidden");
 
-  //get the data
-  const booksData = await getBooksData();
+    let filteredBooks = books.filter(
+      (book) =>
+        book["title"].toLowerCase().includes(value) ||
+        book["authors"].join(", ").toLowerCase().includes(value) ||
+        book["subjects"].join(", ").toLowerCase().includes(value)
+    );
+    if (filteredBooks.length > 0) {
+      filteredBooks.forEach((book) => {
+        let resultCard = document.createElement("a");
+        resultCard.className = "search-result-card my-6";
+        resultCard.href = "#";
+        resultCard.innerHTML = `
+              <img
+              class="search-result-img"
+              src="${book.image}"
+              alt="${book.title}"
+            />
+            <div class="search-result-descr">
+              <h3 class="search-result-title">${book.title}</h3>
+              <strong>Author(s):${book.authors.join(",")}</strong>
+              <caption>${book.subjects.join(",")}</caption>
+            </div>`;
+        searchResult.appendChild(resultCard);
+      });
+    } else {
+      let resultNotFound = document.createElement("div");
+      resultNotFound.className =
+        "search-result-not-found text-center text-gray-400";
+      resultNotFound.innerHTML =
+        "<p>No books found, please try with another keyword</p>";
+      searchResult.appendChild(resultNotFound);
+    }
+  }
+};
 
-  //search the data.json with filter
-  const result = booksData.filter(({ title }) =>
-    title.toLowerCase().includes(query)
-  );
+searchForm.onsubmit = searchBooks;
 
-  //   searchResult.innerHTML = "";
+/* PAGE TAB FUNCTION --------------------------*/
+function previousBooksPage() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
 
-  result.forEach((book) => {
-    let resultCard = document.createElement("a");
-    resultCard.classList.add("search-result-card", "my-6");
-    resultCard.innerHTML = `
-        <img
-        class="search-result-img"
-        src="${book.image}"
-        alt="${book.title}"
-      />
-      <div class="search-result-descr">
-        <h3 class="search-result-title">${book.title}</h3>
-        <b>Author(s):${book.authors.join(",")}</b>
-        <caption>${book.subjects.join(",")}</caption>
-      </div>`;
-    searchResult.appendChild(resultCard);
-  });
-});
+  let page = urlParams.get("page");
+
+  if (page && page == "2") {
+    window.location.replace("?page=1");
+  } else {
+    window.location.reload();
+  }
+}
+
+function nextBooksPage() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+
+  let page = urlParams.get("page");
+
+  if (page && page == "1") {
+    window.location.replace("?page=2");
+  } else {
+    window.location.reload();
+  }
+}
