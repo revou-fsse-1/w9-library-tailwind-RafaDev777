@@ -29,7 +29,7 @@ const toggleMobileMenu = () => {
 /* SEARCH FUNC ----------------*/
 
 const getBooksData = async () => {
-  let response = await fetch("./data.json");
+  let response = await fetch("./src/data.json");
   let json = await response.json();
   return json["books"];
 };
