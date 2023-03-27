@@ -8,7 +8,7 @@
 
     <link href="/dist/output.css" rel="stylesheet" />
   </head>
-  <body class="flex flex-col h-screen">
+  <body class="flex flex-col h-screen" onload="loadBooks()">
     <header>
       <nav class="bg-gray-800">
         <div
@@ -19,9 +19,13 @@
               class="m-menu-btn space-y-1 block p-2.5 rounded-md active:bg-slate-700 lg:hidden"
               onclick="toggleMobileMenu()"
             >
-              <span class="block w-4 h-0.5 bg-white animate-pulse"></span>
-              <span class="block w-4 h-0.5 bg-white animate-pulse"></span>
-              <span class="block w-4 h-0.5 bg-white animate-pulse"></span>
+              <span
+                class="stripe-1 block w-4 h-0.5 bg-white origin-top-left"
+              ></span>
+              <span class="stripe-2 block w-4 h-0.5 bg-white"></span>
+              <span
+                class="stripe-3 block w-4 h-0.5 bg-white origin-top-left"
+              ></span>
             </a>
           </div>
           <div class="logo-wrapper">
@@ -41,8 +45,8 @@
                 >Library</a
               >
               <a
-                href="./books.html"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                href="#"
+                class="text-gray-300 text-sm font-medium bg-gray-700 p-3 rounded-md"
                 >Books</a
               >
               <a
@@ -115,26 +119,7 @@
           </div>
           <div
             class="book-grid my-5 grid grid-cols-1 lg:grid-cols-4 gap-4 px-4"
-          >
-            <div class="w-full border border-gray-700 rounded-lg shadow">
-              <a href="#">
-                <img
-                  class="h-72 mx-auto"
-                  src="https://covers.openlibrary.org/b/olid/OL26425330M-M.jpg"
-                  alt="A Game of Thrones"
-                />
-
-                <div class="p-5">
-                  <h3 class="mb-2 font-bold tracking-tight text-white">
-                    A Game of Thrones
-                  </h3>
-                  <p class="mb-3 text-gray-400">
-                    <strong>Author(s):</strong>George R. R. Martin
-                  </p>
-                </div>
-              </a>
-            </div>
-          </div>
+          ></div>
           <div class="page-tab-navigation-bottom text-center text-gray-400">
             <ul class="inline-flex -space-x-px">
               <li>

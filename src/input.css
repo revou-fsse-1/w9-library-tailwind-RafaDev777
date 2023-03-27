@@ -38,6 +38,24 @@
   .search-result-title {
     @apply font-bold tracking-tight mb-2;
   }
+  .book-show-card {
+    @apply w-full border border-gray-700 rounded-lg shadow;
+  }
+  .book-show-img {
+    @apply h-72 mx-auto;
+  }
+  .book-show-text-wrapper {
+    @apply p-5;
+  }
+  .book-show-title {
+    @apply mb-2 font-bold tracking-tight text-white;
+  }
+  .book-show-descr {
+    @apply mb-3 text-gray-400;
+  }
+  .active {
+    @apply flex space-x-4 text-gray-400 text-sm font-medium;
+  }
 }
 
 @tailwind utilities;

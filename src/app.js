@@ -74,22 +74,61 @@ const searchBooks = async (evt) => {
       let resultNotFound = document.createElement("div");
       resultNotFound.className =
         "search-result-not-found text-center text-gray-400";
-      resultNotFound.innerHTML =
-        "<p>No books found, please try with another keyword</p>";
+      resultNotFound.innerHTML = `<p class="search-form">No books found, please try with another keyword</p>`;
       searchResult.appendChild(resultNotFound);
     }
   }
 };
 
-searchForm.onsubmit = searchBooks;
+const search = () => {
+  searchForm.onsubmit = searchBooks;
+};
 
 /* PAGE TAB FUNCTION --------------------------*/
-function previousBooksPage() {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
 
+const bookGrid = document.querySelector(".book-grid");
+
+const getPageFromUrl = () => {
+  let queryString = window.location.search;
+  let urlParams = new URLSearchParams(queryString);
   let page = urlParams.get("page");
+  return page;
+};
 
+const loadBooks = async () => {
+  // let page = getPageFromUrl();
+
+  let queryString = window.location.search;
+  let page = new URLSearchParams(queryString).get("page");
+  page = page ? Number(page) : 1;
+  const books = await getBooksData();
+
+  books.slice(12 * (page - 1), 12 * page).forEach((book) => {
+    let bookShowCard = document.createElement("div");
+    bookShowCard.className = "book-show-card";
+    bookShowCard.innerHTML = `<a href="#">
+  <img
+    class="book-show-img"
+    src="${book.image}"
+    alt="${book.title}"
+  />
+  <div class="book-show-text-wrapper">
+    <h3 class="book-show-title ">
+    ${book.title}
+    </h3>
+    <p class="book-show-descr">
+      <strong>Author(s):</strong> ${book.authors.join(", ")}
+    </p>
+  </div>
+</a>`;
+    bookGrid.appendChild(bookShowCard);
+  });
+};
+
+function previousBooksPage() {
+  //page = getPageFromURL
+  let queryString = window.location.search;
+  let page = new URLSearchParams(queryString).get("page");
   if (page && page == "2") {
     window.location.replace("?page=1");
   } else {
@@ -98,11 +137,9 @@ function previousBooksPage() {
 }
 
 function nextBooksPage() {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-
-  let page = urlParams.get("page");
-
+  // page = getPageFromUrl
+  let queryString = window.location.search;
+  let page = new URLSearchParams(queryString).get("page");
   if (page && page == "1") {
     window.location.replace("?page=2");
   } else {

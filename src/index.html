@@ -40,8 +40,8 @@
           <div class="menu-wrapper px-5">
             <div class="hidden lg:block">
               <a
-                href="./index.html"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                href="#"
+                class="text-gray-300 text-sm font-medium bg-gray-700 p-3 rounded-md"
                 >Library</a
               >
               <a
@@ -111,6 +111,7 @@
             />
             <button
               type="submit"
+              onclick="search()"
               class="search-button absolute text-white right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2"
             >
               Search
@@ -119,26 +120,7 @@
         </div>
         <div
           class="search-result container max-w-screen-md bg-gray-800 rounded-lg mx-auto my-3 py-4 lg:px-8 hidden"
-        >
-          <!-- <a href="#" class="search-result-card my-6">
-            <img
-              class="search-result-img"
-              src="https://covers.openlibrary.org/b/olid/OL16980586M-M.jpg"
-              alt="Rich Dad, Poor Dad - Robert T. Kiyosaki"
-            />
-            <div class="search-result-descr">
-              <h3 class="search-result-title">test</h3>
-              <b>Author(s):</b>
-              <caption>
-                Rich people, personal finance, investment
-              </caption>
-            </div>
-          </a> -->
-
-          <!-- <div class="search-result-not-found text-center text-gray-400">
-            <p>No books found, please try with another keyword</p>
-          </div> -->
-        </div>
+        ></div>
       </div>
     </main>
     <footer class="py-3 bg-gray-800">
