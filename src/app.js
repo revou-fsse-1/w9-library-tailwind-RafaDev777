@@ -16,6 +16,7 @@ const toggleMobileMenu = () => {
     stripe1.style.transform = "rotate(45deg)";
     stripe1.style.transition = "transform 1s";
     stripe2.style.opacity = "0";
+    stripe2.style.transition = "opacity 1s";
     stripe3.style.transform = "rotate(-45deg)";
     stripe3.style.transition = "transform 1s";
   } else {
