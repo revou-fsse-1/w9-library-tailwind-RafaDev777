@@ -6,4 +6,4 @@ For this week assignment, we have to made a duplicate of Revou Library website u
 
 ## Preview Link
 
-[raf-tailwind-library.netlify.app](raf-tailwind-library.netlify.app)
+[Raf Tailwind Library](https://raf-tailwind-library.netlify.app)
